@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>Test</PageTitle>
+<PageTitle>Dashboard</PageTitle>
 
 <RadzenDialog/>
 <RadzenNotification/>
@@ -9,9 +9,22 @@
 
 <RadzenLayout>
     <RadzenHeader>
-        <div class="d-flex align-items-center">
-            <RadzenSidebarToggle Click="@(() => siderbarExpanded = !siderbarExpanded)" />
-            <RadzenText TextStyle="TextStyle.H5" TextAlign="TextAlign.Left"><strong>SR System<strong></RadzenText>
+        <div class="row">
+            <div class="col-9 d-flex align-items-center">
+                <RadzenSidebarToggle Click="@(() => siderbarExpanded = !siderbarExpanded)" />
+                <RadzenText TextStyle="TextStyle.H5" TagName="TagName.H1"><strong>RT systems</strong></RadzenText>
+            </div>
+            <div class="col-3 d-flex justify-content-end">
+                <RadzenProfileMenu>
+                    <Template>
+                        <RadzenGravatar Email="user@example.com" />
+                    </Template>
+                    <ChildContent>
+                        <RadzenProfileMenuItem Text="Settings" Icon="settings" />
+                        <RadzenProfileMenuItem Text="Log Out" Icon="logout" />
+                    </ChildContent>
+                </RadzenProfileMenu>
+            </div>
         </div>
     </RadzenHeader>
     <RadzenSidebar @bind-Expanded="@siderbarExpanded">
@@ -24,7 +37,7 @@
         <main>@Body</main>
     </RadzenBody>
     <RadzenFooter>
-        <RadzenText TextAlign="TextAlign.Center">Copyright &copy; @currentYear</RadzenText>
+        <RadzenText TextAlign="TextAlign.Center">Copyright &copy; <strong>@currentYear</strong></RadzenText>
     </RadzenFooter>
 </RadzenLayout>
 
