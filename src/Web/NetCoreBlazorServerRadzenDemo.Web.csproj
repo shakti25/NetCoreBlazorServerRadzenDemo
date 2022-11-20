@@ -5,6 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Radzen.Blazor" Version="4.3.6"/>
+    <PackageReference Include="Radzen.Blazor" Version="4.3.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\NetCoreBlazorServerRadzenDemo.Core.csproj" />
   </ItemGroup>
 </Project>
