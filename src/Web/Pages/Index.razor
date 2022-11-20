@@ -3,6 +3,11 @@
 <h1>Hello, world!</h1>
 
 <RadzenButton Text="@text" Click="@ButtonClicked"></RadzenButton>
+<RadzenText TextStyle="TextStyle.Body2" TagName="TagName.P">
+    RadzenLayout allows you to define the global layout of your application (usually used in MainLayout.razor).
+    It has header, sidebar, body and footer sections which correspond to the RadzenHeader, RadzenSidebar, RadzenBody and RadzenFooter components.
+    Sections are optional and can be omitted.
+</RadzenText>
 
 @code {
     string text = "hi!";

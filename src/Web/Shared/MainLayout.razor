@@ -7,4 +7,28 @@
 <RadzenContextMenu/>
 <RadzenTooltip/>
 
-<main> @Body </main>
+<RadzenLayout>
+    <RadzenHeader>
+        <div class="d-flex align-items-center">
+            <RadzenSidebarToggle Click="@(() => siderbarExpanded = !siderbarExpanded)" />
+            <RadzenText TextStyle="TextStyle.H5" TextAlign="TextAlign.Left"><strong>SR System<strong></RadzenText>
+        </div>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="@siderbarExpanded">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Home" Icon="home" Path="/" />
+            <RadzenPanelMenuItem Text="Users" Icon="account_box" Path="Test" />
+        </RadzenPanelMenu>
+    </RadzenSidebar>
+    <RadzenBody>
+        <main>@Body</main>
+    </RadzenBody>
+    <RadzenFooter>
+        <RadzenText TextAlign="TextAlign.Center">Copyright &copy; @currentYear</RadzenText>
+    </RadzenFooter>
+</RadzenLayout>
+
+@code {
+    string currentYear = DateTime.Now.Year.ToString();
+    bool siderbarExpanded = true;
+}
