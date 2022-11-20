@@ -3,7 +3,7 @@ name: build/test
 on:
   push:
     branches: [ "main" ]
-    paths: ["**.cs", "**.csproj"]
+    paths: ["**.cs", "**.razor", "**.csproj"]
   pull_request:
     branches: [ "main" ]
 
