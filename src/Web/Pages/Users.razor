@@ -1,5 +1,31 @@
 @page "/users"
 
+@inject IUserService _userService
+
 <PageTitle>Users</PageTitle>
 
-<h1>Users</h1>
+<RadzenText TextStyle="TextStyle.H3" TagName="TagName.H1">
+    Users
+</RadzenText>
+
+<RadzenDataGrid Data="@users" TItem="User">
+    <Columns>
+        <RadzenDataGridColumn TItem="User" Property="Id" Title="Id" Width="40px" />
+        <RadzenDataGridColumn TItem="User" Property="FirstName" Title="First Name" />
+        <RadzenDataGridColumn TItem="User" Property="LastName" Title="Last Name" />
+        <RadzenDataGridColumn TItem="User" Property="DateOfBirth" Title="Date of Birth" />
+        <RadzenDataGridColumn TItem="User" Property="Phone" Title="Phone" />
+        <RadzenDataGridColumn TItem="User" Property="Email" Title="Email" />
+    </Columns>
+</RadzenDataGrid>
+
+@code {
+    IEnumerable<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        users = await _userService.GetUsersAsync();
+    }
+}
